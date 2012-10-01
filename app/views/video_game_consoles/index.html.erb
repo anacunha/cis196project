@@ -1,0 +1,27 @@
+<h1>Listing video_game_consoles</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Release date</th>
+    <th>Manufacturer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @video_game_consoles.each do |video_game_console| %>
+  <tr>
+    <td><%= video_game_console.name %></td>
+    <td><%= video_game_console.release_date %></td>
+    <td><%= video_game_console.manufacturer %></td>
+    <td><%= link_to 'Show', video_game_console %></td>
+    <td><%= link_to 'Edit', edit_video_game_console_path(video_game_console) %></td>
+    <td><%= link_to 'Destroy', video_game_console, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Video game console', new_video_game_console_path %>
