@@ -4,6 +4,8 @@ Myapp::Application.routes.draw do
   resources :video_game_consoles
 
   resources :users
+  
+  root :to => 'video_game_consoles#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
