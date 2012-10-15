@@ -30,6 +30,15 @@
     </div>
   </div>
   <div class="control-group">
+    <%= f.label :gender, class: 'control-label' %>
+    <div class="controls">
+      <%= radio_button_tag('user[gender]', 'Male', true) %>
+      <%= label_tag('user[gender]', 'Male') %>
+      <%= radio_button_tag('user[gender]', 'Female') %>
+      <%= label_tag('user[gender]', 'Female') %>
+    </div>
+  </div>
+  <div class="control-group">
     <%= f.label :telephone, class: 'control-label' %>
     <div class="controls">
       <%= f.text_field :telephone %>
