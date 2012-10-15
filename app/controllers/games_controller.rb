@@ -25,6 +25,7 @@ class GamesController < ApplicationController
   # GET /games/new.json
   def new
     @game = Game.new
+    @video_game_consoles = VideoGameConsole.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class GamesController < ApplicationController
   # GET /games/1/edit
   def edit
     @game = Game.find(params[:id])
+    @video_game_consoles = VideoGameConsole.all
   end
 
   # POST /games

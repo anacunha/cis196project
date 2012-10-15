@@ -17,6 +17,13 @@
       <%= f.text_field :title %>
     </div>
   </div>
+  <div class="control-group"> 
+    <%= f.label :video_game_console_id, class: 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :video_game_console_id, @video_game_consoles, :id, :name %>
+      <%= link_to "Add platform", new_video_game_console_path, class: "btn" %>
+    </div>
+  </div>
   <div class="control-group">
     <%= f.label :genre, class: 'control-label' %>
     <div class="controls">
