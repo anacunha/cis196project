@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(:version => 20121015045220) do
     t.string   "gender"
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
   create_table "video_game_consoles", :force => true do |t|
     t.string   "name"
     t.date     "release_date"
