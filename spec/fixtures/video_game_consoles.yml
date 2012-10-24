@@ -1,0 +1,14 @@
+wii:
+  name: Wii
+  release_date: 2006-11-19
+  manufacturer: Nintendo
+
+ps:
+  name: PlayStation
+  release_date: 2006-11-11
+  manufacturer: Sony
+  
+xbox:
+  name: Xbox
+  release_date: 2005-11-22
+  manufacturer: Microsoft
