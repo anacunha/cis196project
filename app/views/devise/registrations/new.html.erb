@@ -3,17 +3,51 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :name %><br />
-  <%= f.text_field :name %></div>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div class="control-group">
+    <%= f.label :name, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :email, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :email %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :date_of_birth, class: 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :date_of_birth, :start_year => 1900, :end_year => Time.now.year %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :gender, class: 'control-label' %>
+    <div class="btn-group">
+      <%= label_tag('user[gender]', 'Male') %>
+      <%= radio_button_tag('user[gender]', 'Male', true) %>
+      <%= label_tag('user[gender]', 'Female') %>
+      <%= radio_button_tag('user[gender]', 'Female') %>     
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :telephone, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :telephone %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password, class: 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password, :autocomplete => "off" %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password_confirmation, class: 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
 
   <div><%= f.submit "Sign up" %></div>
 <% end %>
