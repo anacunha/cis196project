@@ -3,7 +3,10 @@ require 'spec_helper'
 describe "VideoGameConsoles" do
   describe "GET /video_game_consoles" do
     
+    fixtures :users
+    
     before do
+      sign_in
       visit video_game_consoles_path
       click_link "New Video game console"
     end

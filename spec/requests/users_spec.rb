@@ -6,6 +6,7 @@ describe "Users" do
     fixtures :users
     
     before do
+      sign_in
       visit users_path
       click_link "New User"
     end

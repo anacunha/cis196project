@@ -8,6 +8,24 @@
 </head>
 <body>
 <div class="container">
+  <div id="user_nav">
+    <% if user_signed_in? %>
+      Hello, <%= current_user.name %>. Not you?
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+    <% else %>
+      <%= link_to "Sign in", new_user_session_path %>
+    <% end %>
+  </div>
+  <% if alert %>
+    <div class="alert alert-error">
+      <%= alert %>
+    </div>
+  <% end %>
+  <% if notice %>
+    <div class="notice notice-error">
+      <%= notice %>
+    </div>
+  <% end %>
   <%= yield %>
 </div>
 </body>

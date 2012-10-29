@@ -1,3 +1,5 @@
 ana:
   name: Ana
   email: ana@email.com
+  # test1234
+  encrypted_password: $2a$10$DYsJwvLKmJCdkwou77bgi.q9YeF/YeTgeKawaFs3efLIHhUrPu8am

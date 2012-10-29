@@ -4,8 +4,10 @@ describe "Games" do
   describe "GET /games" do
     
     fixtures :video_game_consoles
+    fixtures :users
     
     before do
+      sign_in
       visit games_path
       click_link "New Game"
     end

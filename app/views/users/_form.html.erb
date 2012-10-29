@@ -44,6 +44,18 @@
       <%= f.text_field :telephone %>
     </div>
   </div>
+  <div class="control-group">
+    <%= f.label :password, class: 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password, :autocomplete => "off" %> <i>(leave blank if you don't want to change it)</i>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :password_confirmation, class: 'control-label' %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
   <div class="form-actions">
     <%= f.submit class: 'btn btn-primary' %>
   </div>
