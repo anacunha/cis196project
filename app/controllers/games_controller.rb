@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  before_filter :authenticate_user!
   
   before_filter do
     @video_game_consoles = VideoGameConsole.all

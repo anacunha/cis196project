@@ -13,11 +13,6 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
           <%= link_to "Games App", root_path, class: 'brand' %>
           <div class="nav-collapse collapse">
             <ul class="nav">
@@ -32,8 +27,8 @@
               </div> 
             <% else %>
               <%= form_for(User.new, url: session_path(:user), html: { class: 'navbar-form pull-right' }) do |f| %>
-                <%= f.email_field :email, placeholder: "Email" %>
-                <%= f.password_field :password, placeholder: "Password" %>
+                <%= f.email_field :email, placeholder: "Email", class: 'span2' %>
+                <%= f.password_field :password, placeholder: "Password", class: 'span2' %>
                 <%= f.submit 'Sign in', class: 'btn btn-primary' %>
               <% end %>
             <% end %>
@@ -41,17 +36,18 @@
         </div>
       </div>
     </div>
-    
     <div class="container">
-
-     <%= yield %>
-
-      <hr>
-
-      <footer>
-        <p>&copy; Company 2012</p>
-      </footer>
-
+      <% if alert %>
+        <div class="alert alert-error">
+          <%= alert %>
+        </div>
+      <% end %>
+      <% if notice %>
+        <div class="alert alert-success">
+          <%= notice %>
+        </div>
+      <% end %>
+      <%= yield %>
     </div>
   </body>
 </html>

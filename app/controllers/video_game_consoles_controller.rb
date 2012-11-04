@@ -1,4 +1,7 @@
 class VideoGameConsolesController < ApplicationController
+  
+  before_filter :authenticate_user!
+  
   # GET /video_game_consoles
   # GET /video_game_consoles.json
   def index
