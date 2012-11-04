@@ -1,6 +1,7 @@
 class Game < ActiveRecord::Base
   attr_accessible :developer, :genre, :publisher, :release_date, :title, :video_game_console_id, :video_game_console
   belongs_to :video_game_console
+  has_and_belongs_to_many :users
 
   validates :title, presence: true
   validates :video_game_console, presence: true
