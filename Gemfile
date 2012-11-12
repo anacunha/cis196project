@@ -17,6 +17,7 @@ end
 
 gem 'devise'
 gem 'rails_admin'
+gem 'newrelic_rpm'
 
 # Gems used only for assets and not required
 # in production environments by default.
