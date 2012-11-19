@@ -13,3 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function () {
+	var $close = $('.close');
+	$close.click(function () {
+		$close.closest('.alert').fadeOut('slow');
+		//$close.closest('.alert').hide();
+	})
+});
