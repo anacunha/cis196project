@@ -1,7 +1,9 @@
 <div class="hero-unit">
   <h1>Hello, gamers!</h1><br/>
-  <p>Keep track of your games and game platforms with Games App!</p>
+  <p class="message">Keep track of your games and game platforms with Games App!</p>
   <% if !user_signed_in? %>
     <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
   <% end %>
 </div>
+<a class="btn btn-warning hide-message">Hide Message</a>
+<a class="btn btn-warning show-message">Show Message</a>
