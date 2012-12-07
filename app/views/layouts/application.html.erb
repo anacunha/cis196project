@@ -31,7 +31,7 @@
             </ul>
             <% if user_signed_in? %>
               <div class="pull-right">
-                <p class="navbar-text">Hello, <%= current_user.name %>. Not you? </p>
+                <p class="navbar-text">Hello, <%= link_to current_user.name, profile_path %>. Not you? </p>
                 <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-inverse pull-right' %>
               </div> 
             <% else %>

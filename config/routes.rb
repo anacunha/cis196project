@@ -1,5 +1,7 @@
 Myapp::Application.routes.draw do
   
+  match '/profile', :controller => 'users', :action => 'profile'
+  
   match '/games/playstation', :controller => 'games', :action => 'playstation'
   match '/games/xbox', :controller => 'games', :action => 'xbox'
   match '/games/wii', :controller => 'games', :action => 'wii'
@@ -11,7 +13,7 @@ Myapp::Application.routes.draw do
 
   devise_for :users
 
-  resources :games, :video_game_consoles
+  resources :games, :video_game_consoles, :users
 
   root :to => 'pages#home'
 end
