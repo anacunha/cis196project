@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe VideoGameConsole do
+describe Platform do
   
   it "requires a name" do
     subject.manufacturer = "Microsoft"

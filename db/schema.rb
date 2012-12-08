@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121207021443) do
+ActiveRecord::Schema.define(:version => 20121207050240) do
 
   create_table "games", :force => true do |t|
     t.string   "title"
@@ -19,14 +19,21 @@ ActiveRecord::Schema.define(:version => 20121207021443) do
     t.string   "developer"
     t.string   "publisher"
     t.date     "release_date"
-    t.datetime "created_at",            :null => false
-    t.datetime "updated_at",            :null => false
-    t.integer  "video_game_console_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
-  create_table "games_users", :id => false, :force => true do |t|
-    t.integer "user_id"
+  create_table "games_platforms", :id => false, :force => true do |t|
     t.integer "game_id"
+    t.integer "platform_id"
+  end
+
+  create_table "platforms", :force => true do |t|
+    t.string   "name"
+    t.date     "release_date"
+    t.string   "manufacturer"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -67,13 +74,5 @@ ActiveRecord::Schema.define(:version => 20121207021443) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
-
-  create_table "video_game_consoles", :force => true do |t|
-    t.string   "name"
-    t.date     "release_date"
-    t.string   "manufacturer"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
 
 end

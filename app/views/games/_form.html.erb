@@ -18,10 +18,12 @@
     </div>
   </div>
   <div class="control-group"> 
-    <%= f.label :video_game_console_id, class: 'control-label' %>
+    <%= f.label :platforms, class: 'control-label' %>
     <div class="controls">
-      <%= f.collection_select :video_game_console_id, @video_game_consoles, :id, :name %>
-      <%= link_to "Add platform", new_video_game_console_path, class: "btn" %>
+      <%= collection_select(:game, :platform_ids, 
+              Platform.all(:order=>"name ASC"), 
+              :id, :name, {:selected => @game.platform_ids}, {:multiple => true}) %>
+      <%= link_to "Add platform", new_platform_path, class: "btn" %>
     </div>
   </div>
   <div class="control-group">

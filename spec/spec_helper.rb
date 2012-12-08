@@ -37,7 +37,7 @@ RSpec.configure do |config|
   config.order = "random"
   
   def sign_in
-    visit new_user_session_path
+    visit root_path
     fill_in 'Email', with: 'ana@email.com'
     fill_in 'Password', with: 'test1234'
     click_button 'Sign in'

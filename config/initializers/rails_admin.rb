@@ -27,10 +27,10 @@ RailsAdmin.config do |config|
   # config.default_items_per_page = 20
 
   # Exclude specific models (keep the others):
-  # config.excluded_models = ['Game', 'User', 'VideoGameConsole']
+  # config.excluded_models = ['Game', 'User', 'Platform']
 
   # Include specific models (exclude the others):
-  # config.included_models = ['Game', 'User', 'VideoGameConsole']
+  # config.included_models = ['Game', 'User', 'Platform']
 
   # Label methods for model instances:
   # config.label_methods << :description # Default is [:name, :title]
@@ -60,7 +60,7 @@ RailsAdmin.config do |config|
   
   #   # Found associations:
 
-  #     configure :video_game_console, :belongs_to_association 
+  #     configure :platform, :belongs_to_association 
 
   #   # Found columns:
 
@@ -72,7 +72,7 @@ RailsAdmin.config do |config|
   #     configure :release_date, :date 
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime 
-  #     configure :video_game_console_id, :integer         # Hidden 
+  #     configure :platform_id, :integer         # Hidden 
 
   #   # Cross-section configuration:
   
@@ -157,11 +157,11 @@ RailsAdmin.config do |config|
   # end
 
 
-  ###  VideoGameConsole  ###
+  ###  Platform  ###
 
-  # config.model 'VideoGameConsole' do
+  # config.model 'Platform' do
 
-  #   # You can copy this to a 'rails_admin do ... end' block inside your video_game_console.rb model definition
+  #   # You can copy this to a 'rails_admin do ... end' block inside your platform.rb model definition
   
   #   # Found associations:
 

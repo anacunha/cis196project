@@ -1,6 +1,6 @@
-class CreateVideoGameConsoles < ActiveRecord::Migration
+class CreatePlatforms < ActiveRecord::Migration
   def change
-    create_table :video_game_consoles do |t|
+    create_table :platforms do |t|
       t.string :name
       t.date :release_date
       t.string :manufacturer

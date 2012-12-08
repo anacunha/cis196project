@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class VideoGameConsoleTest < ActiveSupport::TestCase
+class PlatformTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

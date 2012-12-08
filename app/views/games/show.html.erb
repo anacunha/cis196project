@@ -4,8 +4,10 @@
 </p>
 
 <p>
-  <b>Platform:</b>
-  <%= @game.video_game_console_name %>
+  <b>Platforms:</b>
+  <% @game.platforms.each do |platform| %>
+    <%= platform.name %>
+  <% end %>
 </p>
 
 <p>

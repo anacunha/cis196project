@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Platform</th>
+    <th>Platforms</th>
     <th>Genre</th>
     <th>Developer</th>
     <th>Publisher</th>
@@ -16,7 +16,11 @@
 <% @games.each do |game| %>
   <tr>
     <td><%= game.title %></td>
-    <td><%= game.video_game_console_name %></td>
+    <td>
+      <% game.platforms.each do |platform| %>
+        <%= platform.name %>
+      <% end %>
+    </td>
     <td><%= game.genre %></td>
     <td><%= game.developer %></td>
     <td><%= game.publisher %></td>

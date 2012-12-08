@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%= @platform.name %>
+</p>
+
+<p>
+  <b>Release date:</b>
+  <%= @platform.release_date %>
+</p>
+
+<p>
+  <b>Manufacturer:</b>
+  <%= @platform.manufacturer %>
+</p>
+
+
+<%= link_to 'Edit', edit_platform_path(@platform) %> |
+<%= link_to 'Back', platforms_path %>

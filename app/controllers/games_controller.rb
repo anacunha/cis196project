@@ -2,7 +2,7 @@ class GamesController < ApplicationController
   before_filter :authenticate_user!
   
   before_filter do
-    @video_game_consoles = VideoGameConsole.all
+    @platforms = Platform.all
   end
   
   # GET /games
@@ -87,8 +87,8 @@ class GamesController < ApplicationController
     end
   end
   
-  def playstation
-    @games = Game.playstation
+  def playstation3
+    @games = Game.playstation3
 
     respond_to do |format|
       format.html # index.html.erb
@@ -96,8 +96,8 @@ class GamesController < ApplicationController
     end
   end
   
-  def xbox
-    @games = Game.xbox
+  def xbox360
+    @games = Game.xbox360
 
     respond_to do |format|
       format.html # index.html.erb

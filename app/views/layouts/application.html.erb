@@ -21,13 +21,13 @@
                 <a href="/games" class="dropdown-toggle" data-toggle="dropdown">Games <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><%= link_to "All Games", games_path %></li>
-                  <li><%= link_to "PlayStation 3", games_playstation_path %></li>
-                  <li><%= link_to "Xbox 360", games_xbox_path %></li>
+                  <li><%= link_to "PlayStation 3", games_playstation3_path %></li>
+                  <li><%= link_to "Xbox 360", games_xbox360_path %></li>
                   <li><%= link_to "Wii", games_wii_path %></li>
                   <li><%= link_to "Others", games_others_path %></li>
                 </ul>
               </li>
-              <li><%= link_to "Consoles", video_game_consoles_path %></li>
+              <li><%= link_to "Platforms", platforms_path %></li>
             </ul>
             <% if user_signed_in? %>
               <div class="pull-right">
