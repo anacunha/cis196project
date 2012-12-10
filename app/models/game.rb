@@ -1,6 +1,7 @@
 class Game < ActiveRecord::Base
   attr_accessible :developer, :genre, :publisher, :release_date, :title, :platforms, :platform_ids
-  has_and_belongs_to_many :platforms
+  has_many :game_platforms
+  has_many :platforms, :through => :game_platforms
   
   validates :title, presence: true
   #validates :platforms, presence: true

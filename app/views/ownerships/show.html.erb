@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Purchase date:</b>
+  <%= @ownership.purchase_date %>
+</p>
+
+<p>
+  <b>Amount paid:</b>
+  <%= @ownership.amount_paid %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @ownership.user_id %>
+</p>
+
+<p>
+  <b>Game platform:</b>
+  <%= @ownership.game_platform_id %>
+</p>
+
+<p>
+  <b>Game retailer:</b>
+  <%= @ownership.game_retailer_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_ownership_path(@ownership) %> |
+<%= link_to 'Back', ownerships_path %>

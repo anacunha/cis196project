@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_many :ownerships
+  has_many :game_platforms, :through => :ownerships
+  has_many :games, :through => :game_platforms
+  has_many :platforms, :through => :game_platforms
 end

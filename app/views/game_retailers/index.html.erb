@@ -1,0 +1,25 @@
+<h1>Listing game_retailers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Website</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @game_retailers.each do |game_retailer| %>
+  <tr>
+    <td><%= game_retailer.name %></td>
+    <td><%= game_retailer.website %></td>
+    <td><%= link_to 'Show', game_retailer %></td>
+    <td><%= link_to 'Edit', edit_game_retailer_path(game_retailer) %></td>
+    <td><%= link_to 'Destroy', game_retailer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Game retailer', new_game_retailer_path %>

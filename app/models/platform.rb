@@ -4,5 +4,6 @@ class Platform < ActiveRecord::Base
   validates :name, presence: true
   validates :manufacturer, presence: true
   
-  has_and_belongs_to_many :games
+  has_many :game_platforms
+  has_many :games, :through => :game_platforms
 end
