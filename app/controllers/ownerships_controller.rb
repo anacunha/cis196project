@@ -2,15 +2,18 @@ class OwnershipsController < ApplicationController
   before_filter :authenticate_user!
   
   before_filter do
-    @users = User.all
     @game_retailers = GameRetailer.all
     @game_platforms = GamePlatform.all
+  end
+  
+  def ownerships
+    current_user.ownerships
   end
   
   # GET /ownerships
   # GET /ownerships.json
   def index
-    @ownerships = Ownership.all
+    @ownerships = ownerships
 
     respond_to do |format|
       format.html # index.html.erb
@@ -21,7 +24,7 @@ class OwnershipsController < ApplicationController
   # GET /ownerships/1
   # GET /ownerships/1.json
   def show
-    @ownership = Ownership.find(params[:id])
+    @ownership = ownerships.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -32,7 +35,7 @@ class OwnershipsController < ApplicationController
   # GET /ownerships/new
   # GET /ownerships/new.json
   def new
-    @ownership = Ownership.new
+    @ownership = ownerships.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,13 +45,14 @@ class OwnershipsController < ApplicationController
 
   # GET /ownerships/1/edit
   def edit
-    @ownership = Ownership.find(params[:id])
+    @ownership = ownerships.find(params[:id])
   end
 
   # POST /ownerships
   # POST /ownerships.json
   def create
-    @ownership = Ownership.new(params[:ownership])
+    @ownership = ownerships.new(params[:ownership])
+    puts @ownership.inspect
 
     respond_to do |format|
       if @ownership.save
@@ -64,7 +68,7 @@ class OwnershipsController < ApplicationController
   # PUT /ownerships/1
   # PUT /ownerships/1.json
   def update
-    @ownership = Ownership.find(params[:id])
+    @ownership = ownerships.find(params[:id])
 
     respond_to do |format|
       if @ownership.update_attributes(params[:ownership])
@@ -80,7 +84,7 @@ class OwnershipsController < ApplicationController
   # DELETE /ownerships/1
   # DELETE /ownerships/1.json
   def destroy
-    @ownership = Ownership.find(params[:id])
+    @ownership = ownerships.find(params[:id])
     @ownership.destroy
 
     respond_to do |format|

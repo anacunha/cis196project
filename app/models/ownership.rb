@@ -1,5 +1,5 @@
 class Ownership < ActiveRecord::Base
-  attr_accessible :amount_paid, :game_platform_id, :game_retailer_id, :purchase_date, :user_id
+  attr_accessible :amount_paid, :game_platform, :game_platform_id, :game_retailer_id, :purchase_date, :user_id
   belongs_to :user
   belongs_to :game_platform
   belongs_to :game_retailer
@@ -21,4 +21,7 @@ class Ownership < ActiveRecord::Base
   def platform_name
     platform.name if platform
   end
+  
+  validates :user, presence: true
+  validates :game_platform, presence: true
 end

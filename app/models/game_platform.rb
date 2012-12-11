@@ -5,14 +5,6 @@ class GamePlatform < ActiveRecord::Base
   has_many :ownerships
   has_many :users, :through => :ownerships
   
-  def game_title
-    game.title if game
-  end
-  
-  def platform_name
-    platform.name if platform
-  end
-  
   def game_platform_pair
     game.title + " - " + platform.name
   end

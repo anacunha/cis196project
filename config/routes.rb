@@ -1,7 +1,9 @@
 Myapp::Application.routes.draw do
   
-  match '/profile', :controller => 'users', :action => 'profile'
+  match '/my/games', :controller => 'users', :action => 'games'
+  match '/my/profile', :controller => 'users', :action => 'profile'
   
+  match '/games', :controller => 'game_platforms', :action => 'index'
   match '/games/playstation3', :controller => 'games', :action => 'playstation3'
   match '/games/xbox360', :controller => 'games', :action => 'xbox360'
   match '/games/wii', :controller => 'games', :action => 'wii'

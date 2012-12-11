@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
   
+  before_filter do
+    @game_platforms = GamePlatform.all
+    @ownerships = Ownership.all
+  end
+  
   # GET /users
   # GET /users.json
   def index
@@ -24,6 +29,15 @@ class UsersController < ApplicationController
   end
   
   def profile
+    @user = current_user
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+    end
+  end
+  
+  def games
     @user = current_user
     
     respond_to do |format|

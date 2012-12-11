@@ -5,19 +5,13 @@
     <th>Name</th>
     <th>Release date</th>
     <th>Manufacturer</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @platforms.each do |platform| %>
   <tr>
-    <td><%= platform.name %></td>
+    <td><%= link_to platform.name, platform_path(platform) %></td>
     <td><%= platform.release_date %></td>
     <td><%= platform.manufacturer %></td>
-    <td><%= link_to 'Show', platform %></td>
-    <td><%= link_to 'Edit', edit_platform_path(platform) %></td>
-    <td><%= link_to 'Destroy', platform, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

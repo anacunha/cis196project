@@ -20,10 +20,6 @@
     <%= f.text_field :amount_paid %>
   </div>
   <div class="field">
-    <%= f.label :user %><br />
-    <%= f.collection_select :user_id, @users, :id, :name %>
-  </div>
-  <div class="field">
     <%= f.label :game_platform %><br />
     <%= f.collection_select :game_platform_id, @game_platforms, :id, :game_platform_pair %>
   </div>
