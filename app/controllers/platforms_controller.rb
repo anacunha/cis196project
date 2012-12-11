@@ -1,5 +1,4 @@
-class PlatformsController < ApplicationController
-  
+class PlatformsController < ApplicationController  
   before_filter :authenticate_user!
   
   # GET /platforms

@@ -1,4 +1,12 @@
 class OwnershipsController < ApplicationController
+  before_filter :authenticate_user!
+  
+  before_filter do
+    @users = User.all
+    @game_retailers = GameRetailer.all
+    @game_platforms = GamePlatform.all
+  end
+  
   # GET /ownerships
   # GET /ownerships.json
   def index

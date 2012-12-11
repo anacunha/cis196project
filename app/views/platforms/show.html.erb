@@ -4,8 +4,7 @@
 </p>
 
 <p>
-  <b>Release date:</b>
-  <%= @platform.release_date %>
+  <%= image_tag @platform.image_url %>
 </p>
 
 <p>
@@ -13,6 +12,10 @@
   <%= @platform.manufacturer %>
 </p>
 
+<p>
+  <b>Release date:</b>
+  <%= @platform.release_date %>
+</p>
 
 <%= link_to 'Edit', edit_platform_path(@platform) %> |
 <%= link_to 'Back', platforms_path %>

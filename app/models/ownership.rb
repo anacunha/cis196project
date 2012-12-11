@@ -3,4 +3,22 @@ class Ownership < ActiveRecord::Base
   belongs_to :user
   belongs_to :game_platform
   belongs_to :game_retailer
+  has_one :game, :through => :game_platform
+  has_one :platform, :through => :game_platform
+  
+  def user_name
+    user.name if user
+  end
+  
+  def game_retailer_name
+    game_retailer.name if game_retailer
+  end
+  
+  def game_title
+    game.title if game
+  end
+  
+  def platform_name
+    platform.name if platform
+  end
 end

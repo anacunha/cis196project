@@ -4,6 +4,11 @@
 </p>
 
 <p>
+  <b>Cover:</b>
+  <%= image_tag @game.image_url %>
+</p>
+
+<p>
   <b>Platforms:</b>
   <% @game.platforms.each do |platform| %>
     <%= platform.name %>

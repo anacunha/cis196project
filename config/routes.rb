@@ -13,7 +13,7 @@ Myapp::Application.routes.draw do
 
   devise_for :users
 
-  resources :games, :platforms, :users, :game_retailers, :ownerships
+  resources :games, :platforms, :users, :game_retailers, :ownerships, :game_platforms
 
   root :to => 'pages#home'
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121210025131) do
+ActiveRecord::Schema.define(:version => 20121211000528) do
 
   create_table "game_platforms", :force => true do |t|
     t.integer  "game_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20121210025131) do
     t.date     "release_date"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "image_url"
   end
 
   create_table "games_platforms", :id => false, :force => true do |t|
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20121210025131) do
     t.string   "manufacturer"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.string   "image_url"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

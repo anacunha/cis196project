@@ -1,5 +1,5 @@
 class Platform < ActiveRecord::Base
-  attr_accessible :manufacturer, :name, :release_date
+  attr_accessible :manufacturer, :name, :release_date, :image_url
   
   validates :name, presence: true
   validates :manufacturer, presence: true
