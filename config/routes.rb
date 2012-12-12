@@ -4,10 +4,11 @@ Myapp::Application.routes.draw do
   match '/my/profile', :controller => 'users', :action => 'profile'
   
   match '/games', :controller => 'game_platforms', :action => 'index'
-  match '/games/playstation3', :controller => 'games', :action => 'playstation3'
-  match '/games/xbox360', :controller => 'games', :action => 'xbox360'
-  match '/games/wii', :controller => 'games', :action => 'wii'
-  match '/games/others', :controller => 'games', :action => 'others'
+  match '/games/pc', :controller => 'game_platforms', :action => 'pc'
+  match '/games/playstation3', :controller => 'game_platforms', :action => 'playstation3'
+  match '/games/xbox360', :controller => 'game_platforms', :action => 'xbox360'
+  match '/games/wii', :controller => 'game_platforms', :action => 'wii'
+  match '/games/others', :controller => 'game_platforms', :action => 'others'
   
   get "pages/home"
 

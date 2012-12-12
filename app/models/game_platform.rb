@@ -11,4 +11,10 @@ class GamePlatform < ActiveRecord::Base
   
   validates :game, presence: true
   validates :platform, presence: true
+
+  scope :pc, joins(:platform).where('name = ?', "PC")
+  scope :playstation3, joins(:platform).where('name = ?', "PlayStation 3")
+  scope :wii, joins(:platform).where('name LIKE ?', "Wii%")
+  scope :xbox360, joins(:platform).where('name = ?', "Xbox 360")
+  scope :others, joins(:platform).where('name not in (?, ?, ?, ?, ?)', "PC", "PlayStation 3", "Wii", "Wii U", "Xbox 360").order('name ASC')
 end

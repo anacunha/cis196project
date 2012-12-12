@@ -88,8 +88,17 @@ class GamePlatformsController < ApplicationController
     end
   end
   
+  def pc
+    @game_platforms = GamePlatform.pc
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @games }
+    end
+  end
+  
   def playstation3
-    @games = Game.playstation3
+    @game_platforms = GamePlatform.playstation3
 
     respond_to do |format|
       format.html # index.html.erb
@@ -98,7 +107,7 @@ class GamePlatformsController < ApplicationController
   end
   
   def xbox360
-    @games = Game.xbox360
+    @game_platforms = GamePlatform.xbox360
 
     respond_to do |format|
       format.html # index.html.erb
@@ -107,7 +116,7 @@ class GamePlatformsController < ApplicationController
   end
   
   def wii
-    @games = Game.wii
+    @game_platforms = GamePlatform.wii
 
     respond_to do |format|
       format.html # index.html.erb
@@ -116,7 +125,7 @@ class GamePlatformsController < ApplicationController
   end
   
   def others
-    @games = Game.others
+    @game_platforms = GamePlatform.others
 
     respond_to do |format|
       format.html # index.html.erb

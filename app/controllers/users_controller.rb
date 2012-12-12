@@ -1,11 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
   
-  before_filter do
-    @game_platforms = GamePlatform.all
-    @ownerships = Ownership.all
-  end
-  
   # GET /users
   # GET /users.json
   def index

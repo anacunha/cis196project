@@ -1,0 +1,29 @@
+<h1>Other Games</h1>
+
+<table class="table table-hover">
+  <tr>
+    <th>Game</th>
+    <th>Platform</th>
+    <th>Genre</th>
+    <th>Developer</th>
+    <th>Publisher</th>
+    <th>Release date</th>
+    <th></th>
+  </tr>
+
+<% @game_platforms.each do |game_platform| %>
+  <tr>
+    <td><%= link_to game_platform.game.title, game_path(game_platform.game) %></td>
+    <td><%= link_to game_platform.platform.name, platform_path(game_platform.platform) %></td>
+    <td><%= game_platform.game.genre %></td>
+    <td><%= game_platform.game.developer %></td>
+    <td><%= game_platform.game.publisher %></td>
+    <td><%= game_platform.game.release_date %></td>
+    <td></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Game', new_game_path %>

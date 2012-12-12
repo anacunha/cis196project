@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
   
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  has_attached_file :avatar, :styles => { :medium => "200x200>", :thumb => "100x100>" }
   has_many :ownerships
   has_many :game_platforms, :through => :ownerships
   has_many :games, :through => :game_platforms

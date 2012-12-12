@@ -96,31 +96,4 @@ class GamesController < ApplicationController
     end
   end
   
-  def xbox360
-    @games = Game.xbox360
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @games }
-    end
-  end
-  
-  def wii
-    @games = Game.wii
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @games }
-    end
-  end
-  
-  def others
-    @games = Game.others
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @games }
-    end
-  end
-  
 end
