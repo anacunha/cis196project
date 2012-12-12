@@ -1,33 +1,56 @@
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
-<p>
-  <b>Avatar:</b>
-  <%= image_tag @user.avatar.url(:thumb) %>
-</p>
-
-<p>
-  <b>Date of birth:</b>
-  <%= @user.date_of_birth %>
-</p>
-
-<p>
-  <b>Gender:</b>
-  <%= @user.gender %>
-</p>
-
-<p>
-  <b>Telephone:</b>
-  <%= @user.telephone %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span4">
+      <ul class="thumbnails">
+        <li class="span8">
+          <a href="#" class="thumbnail">
+            <% if @user.avatar.url == '/avatars/original/missing.png' %>
+              <img src="/assets/profile/no_avatar.png"/>
+            <% else %>
+              <%= image_tag @user.avatar.url(:medium) %>
+            <% end %>
+          </a>
+        </li>
+      </ul>
+      <h2> <%= @user.name %></h2>
+      <img src="/assets/profile/mail.png" height="15" width="15"/>&nbsp;
+      <%= @user.email %><br />
+      <% if !@user.telephone.empty? %>
+        <img src="/assets/profile/telephone.png" height="15" width="15"/>&nbsp;
+        <%= @user.telephone %><br />
+      <% end %>
+      <% if @user.gender == 'Female' %>
+        <img src="/assets/profile/female.png" height="15" width="15"/>&nbsp;
+        <%= @user.gender %><br />
+      <% elsif @user.gender = 'Male' %>
+        <img src="/assets/profile/male.png" height="15" width="15"/>&nbsp;
+        <%= @user.gender %><br />
+      <% end %>
+      <% if !@user.date_of_birth.nil? %>
+        <img src ="/assets/profile/birthday.png" height="15" width="15"/>&nbsp;
+        <%= @user.date_of_birth.strftime("%B %d, %Y") %><br />
+      <% end %>
+    </div>
+    <div class="span8">
+      <h3><%= @user.name.split(' ').first %>'s Games</h3>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Game</th>
+            <th>Platform</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.game_platforms.each do |game_platform| %>
+            <tr>
+              <td><%= link_to game_platform.game.title, game_path(game_platform.game) %></td>
+              <td><%= link_to game_platform.platform.name, platform_path(game_platform.platform) %></td>
+              <td>Remove</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

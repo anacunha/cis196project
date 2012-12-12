@@ -1,6 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'form-horizontal', :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="control-group">
@@ -30,39 +30,46 @@
   </div>
   <div class="control-group">
     <%= f.label :gender, class: 'control-label' %>
-    <div class="btn-group">
-      <%= label_tag('user[gender]', 'Male') %>
-      <%= radio_button_tag('user[gender]', 'Male', true) %>
-      <%= label_tag('user[gender]', 'Female') %>
-      <%= radio_button_tag('user[gender]', 'Female') %>     
+    <div class="controls">
+      <div class="btn-group">
+        <label for="user_gender">
+          <%= radio_button_tag('user[gender]', 'Male', (@user.gender == 'Male')) %>
+          Male
+        </label>
+        <label for="user_gender">
+          <%= radio_button_tag('user[gender]', 'Female', (@user.gender == 'Female')) %>
+          Female
+        </label>
+      </div>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :telephone, class: 'control-label' %>
     <div class="controls">
-      <%= f.text_field :telephone %>
+      <%= f.text_field :telephone, placeholder: 'Telephone' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :password, class: 'control-label' %>
     <div class="controls">
-      <%= f.password_field :password, :autocomplete => "off" %> <i>(leave blank if you don't want to change it)</i>
+      <%= f.password_field :password, :autocomplete => "off", placeholder: 'New Password' %> <i>(leave blank if you don't want to change it)</i>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :password_confirmation, class: 'control-label' %>
     <div class="controls">
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :current_password %>
+    <%= f.label :current_password, class: 'control-label' %>
     <div class="controls">
-      <%= f.password_field :current_password %> <i>(we need your current password to confirm your changes)</i>
+      <%= f.password_field :current_password, placeholder: 'Current Password' %> <i>(we need your current password to confirm your changes)</i>
     </div>
   </div>
-
-  <div><%= f.submit "Update" %></div>
+  <div class="form-actions">
+    <%= f.submit "Update", class: 'btn btn-primary' %>
+  </div>
 <% end %>
 
 <h3>Cancel my account</h3>
