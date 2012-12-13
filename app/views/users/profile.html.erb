@@ -4,11 +4,15 @@
       <ul class="thumbnails">
         <li class="span8">
           <a href="#" class="thumbnail">
-            <%= image_tag @user.avatar.url(:medium) %>
+            <% if @user.avatar.url == '/avatars/original/missing.png' %>
+              <img src="/assets/profile/no_avatar.png"/>
+            <% else %>
+              <%= image_tag @user.avatar.url(:medium) %>
+            <% end %>
           </a>
         </li>
       </ul>
-      <h2> <%= @user.name %></h2>
+      <h2><%= @user.name %></h2>
       <img src="/assets/profile/mail.png" height="15" width="15"/>&nbsp;
       <%= @user.email %><br />
       <% if !@user.telephone.empty? %>

@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  attr_accessible :developer, :genre, :publisher, :release_date, :title, :platforms, :platform_ids, :image_url
+  attr_accessible :developer, :genre, :publisher, :release_date, :title, :platforms, :platform_ids, :image_url, :description
   has_many :game_platforms
   has_many :platforms, :through => :game_platforms
   

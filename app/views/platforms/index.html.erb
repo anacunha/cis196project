@@ -1,20 +1,19 @@
 <h1>Platforms</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Release date</th>
-    <th>Manufacturer</th>
-  </tr>
-
-<% @platforms.each do |platform| %>
-  <tr>
-    <td><%= link_to platform.name, platform_path(platform) %></td>
-    <td><%= platform.release_date %></td>
-    <td><%= platform.manufacturer %></td>
-  </tr>
-<% end %>
-</table>
+<div class="row-fluid">
+  <ul class="thumbnails">
+    <% @platforms.each do |platform| %>
+      <li class="span4">
+        <div class="thumbnail">
+          <%= link_to image_tag(platform.image_url), platform_path(platform) %>
+          <div class="caption">
+            <h4><%= platform.name %></h4>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
 
 <br />
 

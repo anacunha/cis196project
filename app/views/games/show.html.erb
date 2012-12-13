@@ -1,40 +1,50 @@
-<p>
-  <b>Title:</b>
-  <%= @game.title %>
-</p>
+<div class="container-fluid">
+  <h2><%= @game.title %></h2>
+  <div class="row-fluid">
+    <div class="span5">
+      <ul class="thumbnails">
+        <li class="span8">
+          <a href="#" class="thumbnail">
+            <%= image_tag @game.image_url %>
+          </a>
+        </li>
+      </ul>
+          <table class="table">
+            <tr>
+              <th>Platforms</th>
+              <td>
+              <% @game.platforms.each do |platform| %>
+                <%= link_to platform.name, platform_path(platform) %>,
+              <% end %>
+              </td>
+            </tr>
+            <tr>
+              <th>Genre</th>
+              <td><%= @game.genre %></td>
+            </tr>
+            <tr>
+              <th>Developer</th>
+              <td><%= @game.developer %></td>
+            </tr>
+            <tr>
+              <th>Publisher</th>
+              <td><%= @game.publisher %></td>
+            </tr>
+            <tr>
+              <th>Release Date</th>
+              <td><%= @game.release_date.strftime("%B %d, %Y") %></td>
+            </tr>
+          </table>
 
-<p>
-  <b>Cover:</b>
-  <%= image_tag @game.image_url %>
-</p>
-
-<p>
-  <b>Platforms:</b>
-  <% @game.platforms.each do |platform| %>
-    <%= platform.name %>
-  <% end %>
-</p>
-
-<p>
-  <b>Genre:</b>
-  <%= @game.genre %>
-</p>
-
-<p>
-  <b>Developer:</b>
-  <%= @game.developer %>
-</p>
-
-<p>
-  <b>Publisher:</b>
-  <%= @game.publisher %>
-</p>
-
-<p>
-  <b>Release date:</b>
-  <%= @game.release_date %>
-</p>
-
-
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+    </div>
+    <div class="span7">
+      <div class="hero-unit">
+        <%= @game.description %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form-actions">
+  <%= link_to 'Edit', edit_game_path(@game), class: 'btn' %>
+  <%= link_to 'Back', games_path, class: 'btn' %>
+</div>
