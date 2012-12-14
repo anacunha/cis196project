@@ -8,7 +8,7 @@ describe "Games" do
     
     before do
       sign_in
-      visit games_path
+      visit all_games_path
       click_link "New Game"
     end
     

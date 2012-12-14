@@ -47,7 +47,7 @@
   <div class="control-group">
     <%= f.label :release_date, class: 'control-label' %>
     <div class="controls">
-      <%= f.date_select :release_date %>
+      <%= f.date_select :release_date, :start_year => Time.now.year, :end_year => 1980, :include_blank => true %>
     </div>
   </div>
   <div class="form-actions">

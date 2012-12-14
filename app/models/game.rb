@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
   has_many :platforms, :through => :game_platforms
   
   validates :title, presence: true
-  #validates :platforms, presence: true
+  validates :platforms, presence: true
 
   scope :xbox360, joins(:platforms).where('name = ?', "Xbox 360")
   scope :playstation3, joins(:platforms).where('name = ?', "PlayStation 3")

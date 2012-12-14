@@ -5,34 +5,59 @@
       <ul class="thumbnails">
         <li class="span8">
           <a href="#" class="thumbnail">
-            <%= image_tag @game.image_url %>
+            <% if @game.image_url.blank? %>
+              <img src="/assets/no_image.png"/>
+            <% else %>
+              <%= image_tag @game.image_url %>
+            <% end %>
           </a>
         </li>
       </ul>
       <table class="table table-game">
         <tr>
           <th>Platforms</th>
-          <td>
-            <% @game.platforms.each do |platform| %>
-              <%= link_to platform.name, platform_path(platform) %>,
+          <% @game.game_platforms.each_with_index do |game_platform, index| %>
+            <% if index != 0 %>
+              <tr><th></th>
             <% end %>
+          <td>   
+              <%= link_to game_platform.platform.name, platform_path(game_platform.platform) %>
           </td>
+          <td>
+            <span class="label label-success">
+              <%= link_to 'Add', ownerships_path(:ownership => {:game_platform_id => game_platform.id}), :method => :post %>
+            </span>
+          </td>
+            <% if index != 0 %>
+              </tr>
+            <% end %>
+          <% end %>
         </tr>
         <tr>
           <th>Genre</th>
           <td><%= @game.genre %></td>
+          <td></td>
         </tr>
         <tr>
           <th>Developer</th>
           <td><%= @game.developer %></td>
+          <td></td>
         </tr>
         <tr>
           <th>Publisher</th>
           <td><%= @game.publisher %></td>
+          <td></td>
         </tr>
         <tr>
           <th>Release Date</th>
-          <td><%= @game.release_date.strftime("%B %d, %Y") %></td>
+          <td>
+            <% if !@game.release_date.nil? %>
+              <%= @game.release_date.strftime("%B %d, %Y") %>
+            <% else %>
+              -
+            <% end %>
+          </td>
+          <td></td>
         </tr>
       </table>
     </div>
