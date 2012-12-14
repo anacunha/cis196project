@@ -18,7 +18,7 @@
     </div>
   </div>
   <div class="control-group"> 
-    <%= f.label :platforms, class: 'control-label' %>
+    <%= f.label :platform_ids, 'Platforms', class: 'control-label' %>
     <div class="controls">
       <%= collection_select(:game, :platform_ids, 
               Platform.all(:order=>"name ASC"), 

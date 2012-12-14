@@ -4,11 +4,11 @@ wii:
   manufacturer: Nintendo
 
 ps:
-  name: PlayStation
+  name: 'PlayStation 3'
   release_date: 2006-11-11
   manufacturer: Sony
   
 xbox:
-  name: Xbox
+  name: 'Xbox 360'
   release_date: 2005-11-22
   manufacturer: Microsoft

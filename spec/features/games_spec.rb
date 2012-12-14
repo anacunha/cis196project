@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe "Games" do
-  describe "GET /games" do
+  describe "GET /all/games" do
     
     fixtures :platforms
     fixtures :users
@@ -9,7 +9,7 @@ describe "Games" do
     before do
       sign_in
       visit all_games_path
-      click_link "New Game"
+      click_link "Add a new Game"
     end
     
     it "title can't be blank", js:true do
@@ -24,9 +24,8 @@ describe "Games" do
       fill_in "Genre", with: "First-person shooter"
       fill_in "Developer", with: "343 Industries"
       fill_in "Publisher", with: "Microsoft Studios"
-      select "Xbox", from: "Platform"
+      select "Xbox 360", from: "Platforms"
       click_on "Create Game"
-      
       page.should have_content("successfully")
     end
     

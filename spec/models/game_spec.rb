@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Game do
   
   it "requires a title" do
-    subject.platform = Platform.new(name: "Xbox 360", manufacturer: "Microsoft")
+    subject.platforms = [Platform.new(name: "Xbox 360", manufacturer: "Microsoft")]
       
     subject.should_not be_valid   
     subject.title = "Halo 4"   
@@ -14,7 +14,7 @@ describe Game do
     subject.title = "Halo 4"
     
     subject.should_not be_valid
-    subject.platform = Platform.new(name: "Xbox 360", manufacturer: "Microsoft")
+    subject.platforms = [Platform.new(name: "Xbox 360", manufacturer: "Microsoft")]
     subject.should be_valid
   end
   

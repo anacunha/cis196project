@@ -1,5 +1,13 @@
 require 'spec_helper'
 
 describe GameRetailer do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  it "requires a name" do
+    subject.website = "http://amazon.com"
+      
+    subject.should_not be_valid   
+    subject.name = "Amazon"   
+    subject.should be_valid
+  end
+  
 end

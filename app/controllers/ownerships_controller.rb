@@ -66,7 +66,7 @@ class OwnershipsController < ApplicationController
     @ownership.destroy
 
     respond_to do |format|
-      format.html { redirect_to ownerships_url }
+      format.html { redirect_to my_games_path, notice: 'Your game was successfully removed.' }
       format.json { head :no_content }
     end
   end
