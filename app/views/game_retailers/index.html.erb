@@ -1,19 +1,22 @@
-<h1>Game Retailers</h1>
+<h1>Game Retailers</h1><br/>
+<p class="lead">Looking for new games to add to your collection? Checkout our users' favorite retailers!</p>
 
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
-
-<% @game_retailers.each do |game_retailer| %>
-  <tr>
-    <td><%= link_to game_retailer.name, game_retailer.website, :target => '_blank' %></td>
-  </tr>
-<% end %>
-</table>
+<div class="row-fluid">
+  <% @game_retailers.each_with_index do |game_retailer, index| %>
+  <% if index % 4 == 0 %>
+    </ul>
+    <ul class="thumbnails">
+  <% end %>
+  <li class="span3">
+    <div class="thumbnail">
+      <div class="caption">
+        <h4><%= link_to game_retailer.name, game_retailer.website, :target => '_blank' %></h4>
+      </div>
+    </div>
+  </li>
+  <% end %>
+</div>
 
 <br />
 
-<div class="form-actions">
-  <%= link_to 'Add a new Game Retailer', new_game_retailer_path, class: 'btn btn-primary' %>
-</div>
+<%= link_to 'Add New Game Retailer', new_game_retailer_path, class: 'btn btn-primary' %>
