@@ -1,6 +1,6 @@
 Myapp::Application.routes.draw do
   
-  match '/my/games', :controller => 'users', :action => 'games'
+  match '/my/games', :controller => 'ownerships', :action => 'index'
   match '/my/profile', :controller => 'users', :action => 'profile'
   
   match '/all_games', :controller => 'game_platforms', :action => 'index'

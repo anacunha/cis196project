@@ -21,28 +21,6 @@ class OwnershipsController < ApplicationController
     end
   end
 
-  # GET /ownerships/1
-  # GET /ownerships/1.json
-  def show
-    @ownership = ownerships.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @ownership }
-    end
-  end
-
-  # GET /ownerships/new
-  # GET /ownerships/new.json
-  def new
-    @ownership = ownerships.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @ownership }
-    end
-  end
-
   # GET /ownerships/1/edit
   def edit
     @ownership = ownerships.find(params[:id])
@@ -56,7 +34,7 @@ class OwnershipsController < ApplicationController
 
     respond_to do |format|
       if @ownership.save
-        format.html { redirect_to @ownership, notice: 'Ownership was successfully created.' }
+        format.html { redirect_to my_games_path, notice: 'Ownership was successfully created.' }
         format.json { render json: @ownership, status: :created, location: @ownership }
       else
         format.html { render action: "new" }
@@ -72,7 +50,7 @@ class OwnershipsController < ApplicationController
 
     respond_to do |format|
       if @ownership.update_attributes(params[:ownership])
-        format.html { redirect_to @ownership, notice: 'Ownership was successfully updated.' }
+        format.html { redirect_to my_games_path, notice: 'Your game was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

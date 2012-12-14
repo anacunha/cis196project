@@ -1,33 +1,49 @@
-<h1>Listing ownerships</h1>
-
-<table>
+<h1>My Games</h1>
+<br />
+<table class="table table-hover">
   <tr>
-    <th>Purchase date</th>
-    <th>Amount paid</th>
-    <th>User</th>
+    <th>#</th>
     <th>Game</th>
     <th>Platform</th>
-    <th>Game retailer</th>
-    <th></th>
+    <th>Purchase date</th>
+    <th>Amount paid</th>  
+    <th>Retailer</th>
     <th></th>
     <th></th>
   </tr>
 
-<% @ownerships.each do |ownership| %>
+<% @ownerships.each_with_index do |ownership, index| %>
   <tr>
-    <td><%= ownership.purchase_date %></td>
-    <td><%= ownership.amount_paid %></td>
-    <td><%= ownership.user_name %></td>
-    <td><%= ownership.game_title %></td>
+    <td><%= index + 1 %></td>
+    <td><%= link_to ownership.game_title, game_path(ownership.game_platform.game) %></td>
     <td><%= ownership.platform_name %></td>
-    <td><%= ownership.game_retailer_name %></td>
-    <td><%= link_to 'Show', ownership %></td>
+    <td>
+      <% if !ownership.purchase_date.nil? %>
+        <%= ownership.purchase_date.strftime("%B %d, %Y") %>
+      <% else %>
+        -
+      <% end %>
+    </td>
+    <td>
+      <% if !ownership.amount_paid.nil? %>
+        <%= ownership.amount_paid %>
+      <% else %>
+        -
+      <% end %>
+    </td>  
+    <td>
+      <% if !ownership.game_retailer.nil? %>
+        <%= ownership.game_retailer_name %>
+      <% else %>
+        -
+      <% end %>
+    </td>
     <td><%= link_to 'Edit', edit_ownership_path(ownership) %></td>
-    <td><%= link_to 'Destroy', ownership, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <span class="label label-important">
+        <%= link_to 'Remove', ownership, method: :delete, data: { confirm: 'Do you want to remove this game from your collection?' } %></td>
+      </span>
+    </td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New Ownership', new_ownership_path %>
