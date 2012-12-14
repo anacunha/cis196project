@@ -1,0 +1,36 @@
+<% if @games.empty? %>
+  <h3>No games found &nbsp; :(</h3>
+  <br/><p>There's no need to worry, you can always add new games to our database:</p><br/>
+  <%= link_to 'Add a new Game', new_game_path, class: 'btn btn-inverse' %>
+<% else%>
+  <h3>Search results</h3>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Game</th>
+        <th>Genre</th>
+        <th>Developer</th>
+        <th>Publisher</th>
+        <th>Release date</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @games.each do |game| %>
+      <tr>
+        <td><%= link_to game.title, game_path(game) %></td>
+        <td><%= game.genre %></td>
+        <td><%= game.developer %></td>
+        <td><%= game.publisher %></td>
+        <td>
+          <% if !game.release_date.nil? %>
+            <%= game.release_date.strftime("%B %d, %Y") %>
+          <% else %>
+            -
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+

@@ -12,4 +12,9 @@ class Game < ActiveRecord::Base
   scope :others, joins(:platforms).where('name not in (?, ?, ?)', "Wii", "Xbox 360", "PlayStation 3").
                                             order('name ASC').
                                             order('title ASC')
+  
+  def self.search(search)
+    search_condition = "%" + search + "%"
+    find(:all, :conditions => ['title LIKE ?', search_condition])
+  end
 end

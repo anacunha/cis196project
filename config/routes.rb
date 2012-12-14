@@ -10,6 +10,8 @@ Myapp::Application.routes.draw do
   match '/games/wii', :controller => 'game_platforms', :action => 'wii'
   match '/games/others', :controller => 'game_platforms', :action => 'others'
   
+  match '/games/search', :controller => 'games', :action => 'search'
+  
   get "pages/home"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'

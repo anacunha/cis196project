@@ -1,7 +1,19 @@
 <div class="hero-unit">
   <h1>Hello, gamers!</h1><br/>
-  <p class="message">Keep track of your games across different game platforms with Games App!</p>
+  <p class="message">Keep track of all your games across different game platforms with Games App!</p><br />
+  <p class="message">With Games App you will be able to:
+    <ul>
+      <li>Manage your game collection</li>
+      <li>Search and add new games to our increasing database</li>
+      <li>Easy access to your favorite game retailers</li>
+      <li>Learn more about your favorite games and platforms</li>
+    </ul>
+  </p>
   <% if !user_signed_in? %>
     <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary" %>
   <% end %>
 </div>
+<% if user_signed_in? %>
+  <p class="lead">Start searching for games and add the ones you have to your collection!</p>
+  <%= render :partial => 'games/search' %>
+<% end %>

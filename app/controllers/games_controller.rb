@@ -60,4 +60,7 @@ class GamesController < ApplicationController
     end
   end
   
+  def search
+    @games = Game.search params[:search]
+  end
 end

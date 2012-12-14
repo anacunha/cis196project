@@ -34,7 +34,7 @@ class OwnershipsController < ApplicationController
 
     respond_to do |format|
       if @ownership.save
-        format.html { redirect_to my_games_path, notice: 'Ownership was successfully created.' }
+        format.html { redirect_to my_games_path, notice: 'Your game was successfully added.' }
         format.json { render json: @ownership, status: :created, location: @ownership }
       else
         format.html { render action: "new" }
