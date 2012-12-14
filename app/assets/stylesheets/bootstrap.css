@@ -5898,3 +5898,15 @@ a.badge:hover {
 .affix {
   position: fixed;
 }
+
+.thumbnails .platform {
+  padding: 18px;;
+}
+
+.table-platform {
+  width: 80%;
+}
+
+.table-game {
+  width: 80%;
+}

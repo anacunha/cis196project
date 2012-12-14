@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2>Edit Profile</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :class => 'form-horizontal', :method => :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -18,14 +18,16 @@
   <div class="control-group">
     <%= f.label :avatar, class: 'control-label'%>
     <div class="controls">
-      <%= image_tag @user.avatar.url(:thumb) %>
+      <% if @user.avatar.url != '/avatars/original/missing.png' %>
+        <%= image_tag @user.avatar.url(:thumb) %>
+      <% end %>
       <%= f.file_field :avatar %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :date_of_birth, class: 'control-label' %>
     <div class="controls">
-      <%= f.date_select :date_of_birth, :start_year => 1900, :end_year => Time.now.year %>
+      <%= f.date_select :date_of_birth, :start_year => 1900, :end_year => Time.now.year, :include_blank => true %>
     </div>
   </div>
   <div class="control-group">

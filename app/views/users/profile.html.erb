@@ -39,13 +39,15 @@
             <th>Game</th>
             <th>Platform</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
-          <% @user.game_platforms.each do |game_platform| %>
+          <% @user.ownerships.each do |ownership| %>
             <tr>
-              <td><%= link_to game_platform.game.title, game_path(game_platform.game) %></td>
-              <td><%= link_to game_platform.platform.name, platform_path(game_platform.platform) %></td>
+              <td><%= link_to ownership.game_platform.game.title, game_path(ownership.game_platform.game) %></td>
+              <td><%= link_to ownership.game_platform.platform.name, platform_path(ownership.game_platform.platform) %></td>
+              <td><%= link_to 'Edit', edit_ownership_path(ownership) %></td>
               <td>Remove</td>
             </tr>
           <% end %>

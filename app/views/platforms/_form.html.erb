@@ -14,19 +14,19 @@
   <div class="control-group">
     <%= f.label :name, class: 'control-label' %>
     <div class="controls">
-      <%= f.text_field :name %>
+      <%= f.text_field :name, placeholder: 'Platform Name' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :release_date, class: 'control-label' %>
     <div class="controls">
-      <%= f.date_select :release_date %>
+      <%= f.date_select :release_date, :start_year => 1980, :end_year => Time.now.year, :include_blank => true %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :manufacturer, class: 'control-label' %>
     <div class="controls">
-      <%= f.text_field :manufacturer %>
+      <%= f.text_field :manufacturer, placeholder: 'Manufacturer' %>
     </div>
   </div>
   <div class="form-actions">

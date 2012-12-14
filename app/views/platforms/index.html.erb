@@ -1,20 +1,24 @@
-<h1>Platforms</h1>
+<h1>Game Platforms</h1>
 
 <div class="row-fluid">
-  <ul class="thumbnails">
-    <% @platforms.each do |platform| %>
-      <li class="span4">
-        <div class="thumbnail">
-          <%= link_to image_tag(platform.image_url), platform_path(platform) %>
-          <div class="caption">
-            <h4><%= platform.name %></h4>
-          </div>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+  <% @platforms.each_with_index do |platform, index| %>
+  <% if index % 4 == 0 %>
+    </ul>
+    <ul class="thumbnails">
+  <% end %>
+  <li class="span3">
+    <div class="thumbnail">
+      <%= link_to image_tag(platform.image_url), platform_path(platform), class: 'platform' %>
+      <div class="caption">
+        <h4><%= platform.name %></h4>
+        <p><%= truncate(platform.description, :length => 72, :separator => ' ', :omission => ' (...)' ) %></p>
+        <p><%= link_to 'More info', platform_path(platform) %>
+      </div>
+    </div>
+  </li>
+  <% end %>
 </div>
 
 <br />
 
-<%= link_to 'New Platform', new_platform_path %>
+<%= link_to 'Add New Platform', new_platform_path, class: 'btn btn-primary' %>
