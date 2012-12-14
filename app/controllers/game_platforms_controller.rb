@@ -9,7 +9,7 @@ class GamePlatformsController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @game_platforms = GamePlatform.all
+    @game_platforms = GamePlatform.joins(:game).order("title ASC")
 
     respond_to do |format|
       format.html # index.html.erb

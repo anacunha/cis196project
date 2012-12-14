@@ -3,7 +3,7 @@ Myapp::Application.routes.draw do
   match '/my/games', :controller => 'users', :action => 'games'
   match '/my/profile', :controller => 'users', :action => 'profile'
   
-  match '/games', :controller => 'game_platforms', :action => 'index'
+  match '/all_games', :controller => 'game_platforms', :action => 'index'
   match '/games/pc', :controller => 'game_platforms', :action => 'pc'
   match '/games/playstation3', :controller => 'game_platforms', :action => 'playstation3'
   match '/games/xbox360', :controller => 'game_platforms', :action => 'xbox360'

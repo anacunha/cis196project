@@ -2,18 +2,7 @@ class GamesController < ApplicationController
   before_filter :authenticate_user!
   
   before_filter do
-    @platforms = Platform.all
-  end
-  
-  # GET /games
-  # GET /games.json
-  def index
-    @games = Game.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @games }
-    end
+    @platforms = Platform
   end
 
   # GET /games/1
@@ -84,15 +73,6 @@ class GamesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to games_url }
       format.json { head :no_content }
-    end
-  end
-  
-  def playstation3
-    @games = Game.playstation3
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @games }
     end
   end
   

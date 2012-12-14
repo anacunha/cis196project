@@ -5,7 +5,7 @@
         <li class="span8">
           <a href="#" class="thumbnail">
             <% if @user.avatar.url == '/avatars/original/missing.png' %>
-              <img src="/assets/profile/no_avatar.png"/>
+              <img src="/assets/no_image.png"/>
             <% else %>
               <%= image_tag @user.avatar.url(:medium) %>
             <% end %>
@@ -48,7 +48,11 @@
               <td><%= link_to ownership.game_platform.game.title, game_path(ownership.game_platform.game) %></td>
               <td><%= link_to ownership.game_platform.platform.name, platform_path(ownership.game_platform.platform) %></td>
               <td><%= link_to 'Edit', edit_ownership_path(ownership) %></td>
-              <td>Remove</td>
+              <td>
+                <span class="label label-important">
+                  <%= link_to 'Remove', ownership, method: :delete, data: { confirm: 'Do you want to remove this game from your collection?' } %></td>
+                </span>
+              </td>
             </tr>
           <% end %>
         </tbody>

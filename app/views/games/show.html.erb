@@ -9,33 +9,32 @@
           </a>
         </li>
       </ul>
-          <table class="table">
-            <tr>
-              <th>Platforms</th>
-              <td>
-              <% @game.platforms.each do |platform| %>
-                <%= link_to platform.name, platform_path(platform) %>,
-              <% end %>
-              </td>
-            </tr>
-            <tr>
-              <th>Genre</th>
-              <td><%= @game.genre %></td>
-            </tr>
-            <tr>
-              <th>Developer</th>
-              <td><%= @game.developer %></td>
-            </tr>
-            <tr>
-              <th>Publisher</th>
-              <td><%= @game.publisher %></td>
-            </tr>
-            <tr>
-              <th>Release Date</th>
-              <td><%= @game.release_date.strftime("%B %d, %Y") %></td>
-            </tr>
-          </table>
-
+      <table class="table table-game">
+        <tr>
+          <th>Platforms</th>
+          <td>
+            <% @game.platforms.each do |platform| %>
+              <%= link_to platform.name, platform_path(platform) %>,
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>Genre</th>
+          <td><%= @game.genre %></td>
+        </tr>
+        <tr>
+          <th>Developer</th>
+          <td><%= @game.developer %></td>
+        </tr>
+        <tr>
+          <th>Publisher</th>
+          <td><%= @game.publisher %></td>
+        </tr>
+        <tr>
+          <th>Release Date</th>
+          <td><%= @game.release_date.strftime("%B %d, %Y") %></td>
+        </tr>
+      </table>
     </div>
     <div class="span7">
       <div class="hero-unit">
@@ -46,5 +45,5 @@
 </div>
 <div class="form-actions">
   <%= link_to 'Edit', edit_game_path(@game), class: 'btn' %>
-  <%= link_to 'Back', games_path, class: 'btn' %>
+  <%= link_to 'Back', all_games_path, class: 'btn' %>
 </div>

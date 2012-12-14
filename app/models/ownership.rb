@@ -24,4 +24,6 @@ class Ownership < ActiveRecord::Base
   
   validates :user, presence: true
   validates :game_platform, presence: true
+  validates :game, presence: true
+  validates :platform, presence: true
 end

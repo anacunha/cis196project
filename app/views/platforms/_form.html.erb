@@ -18,15 +18,21 @@
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :release_date, class: 'control-label' %>
-    <div class="controls">
-      <%= f.date_select :release_date, :start_year => 1980, :end_year => Time.now.year, :include_blank => true %>
-    </div>
-  </div>
-  <div class="control-group">
     <%= f.label :manufacturer, class: 'control-label' %>
     <div class="controls">
       <%= f.text_field :manufacturer, placeholder: 'Manufacturer' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :release_date, class: 'control-label' %>
+    <div class="controls">
+      <%= f.date_select :release_date, :start_year => Time.now.year, :end_year => 1980, :include_blank => true %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, class: 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, placeholder: 'Game Platform description ...', :cols => "30", :rows => "5" %>
     </div>
   </div>
   <div class="form-actions">

@@ -5,7 +5,11 @@
       <ul class="thumbnails">
         <li class="span8">
           <a href="#" class="thumbnail">
-            <%= image_tag @platform.image_url %>
+            <% if @platform.image_url.blank? %>
+              <img src="/assets/no_image.png"/>
+            <% else %>
+              <%= image_tag @platform.image_url %>
+            <% end %>
           </a>
         </li>
       </ul>

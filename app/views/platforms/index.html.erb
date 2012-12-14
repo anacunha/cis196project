@@ -8,7 +8,11 @@
   <% end %>
   <li class="span3">
     <div class="thumbnail">
-      <%= link_to image_tag(platform.image_url), platform_path(platform), class: 'platform' %>
+      <% if platform.image_url.blank? %>
+        <img src="/assets/no_image.png"/>
+      <% else %>
+        <%= link_to image_tag(platform.image_url), platform_path(platform), class: 'platform' %>
+      <% end %>
       <div class="caption">
         <h4><%= platform.name %></h4>
         <p><%= truncate(platform.description, :length => 72, :separator => ' ', :omission => ' (...)' ) %></p>

@@ -5910,3 +5910,11 @@ a.badge:hover {
 .table-game {
   width: 80%;
 }
+
+.label-success a {
+  color: white;
+}
+
+.label-important a {
+  color: white;
+}

@@ -20,8 +20,18 @@
       <td><%= game_platform.game.genre %></td>
       <td><%= game_platform.game.developer %></td>
       <td><%= game_platform.game.publisher %></td>
-      <td><%= game_platform.game.release_date %></td>
-      <td><%= link_to 'Add to my games', ownerships_path(:ownership => {:game_platform_id => game_platform.id}), :method => :post %></td>
+      <td>
+        <% if !game_platform.game.release_date.nil? %>
+          <%= game_platform.game.release_date.strftime("%B %d, %Y") %>
+        <% else %>
+          -
+        <% end %>
+      </td>
+      <td>
+        <span class="label label-success">
+          <%= link_to 'Add to my games', ownerships_path(:ownership => {:game_platform_id => game_platform.id}), :method => :post %>
+        </span>
+      </td>
     </tr>
   <% end %>
   </tbody>
