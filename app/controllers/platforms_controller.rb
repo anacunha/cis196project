@@ -4,7 +4,7 @@ class PlatformsController < ApplicationController
   # GET /platforms
   # GET /platforms.json
   def index
-    @platforms = Platform.all
+    @platforms = Platform.order("name ASC")
 
     respond_to do |format|
       format.html # index.html.erb
